@@ -1,0 +1,11 @@
+C:\wkd\Projects\Study_2020\code-interview\algo\bin\Debug\netcoreapp2.2\algo.deps.json
+C:\wkd\Projects\Study_2020\code-interview\algo\bin\Debug\netcoreapp2.2\algo.runtimeconfig.json
+C:\wkd\Projects\Study_2020\code-interview\algo\bin\Debug\netcoreapp2.2\algo.runtimeconfig.dev.json
+C:\wkd\Projects\Study_2020\code-interview\algo\bin\Debug\netcoreapp2.2\algo.dll
+C:\wkd\Projects\Study_2020\code-interview\algo\bin\Debug\netcoreapp2.2\algo.pdb
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.csprojAssemblyReference.cache
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.csproj.CoreCompileInputs.cache
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.AssemblyInfoInputs.cache
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.AssemblyInfo.cs
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.dll
+C:\wkd\Projects\Study_2020\code-interview\algo\obj\Debug\netcoreapp2.2\algo.pdb
