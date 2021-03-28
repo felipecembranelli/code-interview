@@ -47,9 +47,12 @@ namespace algo
             //var result = BuyStock(new int[] { 1, 2, 5, 4, 3 });
             //var result = BuyStock(new int[] { 2, 1, 4, 5, 3 });     //1,3
             //var result = BuyStock1(new int[] { 2, 3, 4, 1, 5 });     //3,4
-            var result = BuyStock2(new int[] { 2, 5, 4, 1, 3 });     //0,1
-            var result1 = BuyStock2(new int[] { 2, 1, 4, 5, 3 });     //1,3
-            var result2 = BuyStock2(new int[] { 2, 3, 4, 1, 5 });     //3,4
+            //var result = BuyStock2(new int[] { 2, 5, 4, 1, 3 });     //0,1
+            //var result1 = BuyStock2(new int[] { 2, 1, 4, 5, 3 });     //1,3
+            //var result2 = BuyStock2(new int[] { 2, 3, 4, 1, 5 });     //3,4
+
+            var result = BuyStock3(new int[] { 2, 3, 4, 1, 5 });     //3,4
+
             //DisplayResult(result, 0);
 
         }
@@ -193,6 +196,47 @@ namespace algo
             return new int[] { selectedBuyDay, selectedSellDay };
         }
 
+        public static int[] BuyStock3(int[] nums)
+        {
+
+            timeComplexity = 0;
+            numberInteractions = 0;
+
+            int buyPrice = nums[0];
+            int currentPrice = 0;
+            int sellPrice = 0;
+            int buyDay = 0;
+            int sellDay = 0;
+            int currentBalance = 0;
+            int maxBalance = 0;
+            int selectedBuyDay = 0;
+            int selectedSellDay = 0;
+
+            int minPrice = int.MaxValue;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                currentPrice = nums[i];
+                //buyPrice = currentPrice;
+                //buyDay = i;
+                sellPrice = currentPrice;
+                currentBalance = sellPrice - minPrice;
+
+                if (currentPrice < minPrice) 
+                {
+                    minPrice = currentPrice;
+                    selectedBuyDay = i;
+                }
+
+                if (currentBalance > maxBalance) {
+                    maxBalance = sellPrice - minPrice;
+                    selectedSellDay = i;
+                }
+
+            }
+
+            return new int[] { selectedBuyDay, selectedSellDay };
+        }
 
         /// <summary> 
         /// Helper Method To Display The Result 
