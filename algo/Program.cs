@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace algo
 {
@@ -11,9 +12,11 @@ namespace algo
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello code-interview exercises !");
 
 
+            /////////////////////////////////////////////
+            // Two Sum
             // int[] sampleValues = new int[1000];
 
             // for (int i = 0; i < 1000; i++)
@@ -43,6 +46,9 @@ namespace algo
             // DisplayResult(result3, ++timeComplexity);
 
 
+            /////////////////////////////////////////////
+            // buy stock
+
             //var result = BuyStock(new int[] { 1, 2, 3, 4, 5 });
             //var result = BuyStock(new int[] { 1, 2, 5, 4, 3 });
             //var result = BuyStock(new int[] { 2, 1, 4, 5, 3 });     //1,3
@@ -50,12 +56,52 @@ namespace algo
             //var result = BuyStock2(new int[] { 2, 5, 4, 1, 3 });     //0,1
             //var result1 = BuyStock2(new int[] { 2, 1, 4, 5, 3 });     //1,3
             //var result2 = BuyStock2(new int[] { 2, 3, 4, 1, 5 });     //3,4
+            //var result = BuyStock3(new int[] { 2, 3, 4, 1, 5 });     //3,4
 
-            var result = BuyStock3(new int[] { 2, 3, 4, 1, 5 });     //3,4
+            // int[] sampleValues = new int[1000]
 
-            //DisplayResult(result, 0);
+            /////////////////////////////////////////////
+            // reverse linked list
+
+            // ListNode[] list = new ListNode[4];
+
+            // ListNode n1, n2, n3, n4;
+
+            // n4 = new ListNode(3, null);
+            // n3 = new ListNode(2, n4);
+            // n2 = new ListNode(1, n3);
+            // n1 = new ListNode(0, n2);
+
+            // list[0] = n1;
+            // list[1] = n2;
+            // list[2] = n3;
+            // list[3] = n4;
+
+            // RevertSingleList(list);
+
+            // ListNode[] list2 = new ListNode[1000];
+
+            // for (int i = 0; i < 999; i++)
+            // {
+            //     list2[i] = new ListNode(i, null);
+            // }
+
+            // for (int i = 0; i < 999; i++)
+            // {
+            //     list2[i].next = list2[i+1];
+            // }
+            
+            // RevertSingleList(list2);
+
+            /////////////////////////////////////////////
+            // add strings
+
+            var r = AddStrings("11", "123");
+
+            var r2 = AddStrings("99", "123");
 
         }
+
         public static int[] TwoSum(int[] nums, int target)
         {
 
@@ -81,7 +127,6 @@ namespace algo
 
             return null;
         }
-
         public static int[] TwoSumHash(int[] nums, int target)
         {
 
@@ -170,7 +215,7 @@ namespace algo
             int selectedBuyDay = 0;
             int selectedSellDay = 0;
 
-            
+
             for (int i = 0; i < nums.Length; i++)
             {
                 currentPrice = nums[i];
@@ -183,7 +228,7 @@ namespace algo
                     sellDay = j;
                     currentBalance = sellPrice - buyPrice;
 
-                    if (currentBalance > maxBalance) 
+                    if (currentBalance > maxBalance)
                     {
                         maxBalance = currentBalance;
                         selectedBuyDay = buyDay;
@@ -192,7 +237,7 @@ namespace algo
 
                 }
             }
-            
+
             return new int[] { selectedBuyDay, selectedSellDay };
         }
 
@@ -222,13 +267,14 @@ namespace algo
                 sellPrice = currentPrice;
                 currentBalance = sellPrice - minPrice;
 
-                if (currentPrice < minPrice) 
+                if (currentPrice < minPrice)
                 {
                     minPrice = currentPrice;
                     selectedBuyDay = i;
                 }
 
-                if (currentBalance > maxBalance) {
+                if (currentBalance > maxBalance)
+                {
                     maxBalance = sellPrice - minPrice;
                     selectedSellDay = i;
                 }
@@ -236,6 +282,76 @@ namespace algo
             }
 
             return new int[] { selectedBuyDay, selectedSellDay };
+        }
+
+
+        public static ListNode RevertSingleList(ListNode[] list)
+        {
+            ListNode prevNode = null;
+            ListNode currentNode = list[0];
+            //ListNode nextNode = list[0].next;
+
+            while ((currentNode != null))
+            {
+                ListNode nextTemp = currentNode.next;
+                currentNode.next = prevNode;
+                prevNode = currentNode;
+                currentNode = nextTemp;
+            }
+
+            return prevNode;
+
+        }
+
+        public static string AddStrings(string num1, string num2)
+        {
+            // parse strings
+            int[] array1 = new int[num1.Length];
+            int[] array2 = new int[num2.Length];
+
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < num1.Length; i++)
+            {
+                array1[i] = int.Parse(num1.Substring(i,1));
+            }
+
+            for (int i = 0; i < num2.Length; i++)
+            {
+                array2[i] = int.Parse(num2.Substring(i,1));
+            }
+
+            int carry = 0;
+            //int arraySize = num1.Length;
+            int pointer1 = array1.Length - 1;
+            int pointer2 = array2.Length - 1;
+
+            while (pointer1>=0 || pointer2 >=0) 
+            {
+                int value1, value2;
+                value1 = pointer1>=0 ? array1[pointer1]:0;
+                value2 = pointer2>=0 ? array2[pointer2]:0;
+
+                int sum = (value1 + value2 + carry) % 10 ;
+                carry = (value1 + value2 + carry) / 10 ;
+
+                result.Append(sum);
+                pointer1--;
+                pointer2--;
+            }
+
+            if (carry!=0)
+                result.Append(carry);
+
+            return revertArray(result.ToString());
+        }
+
+        public static string revertArray(string s) 
+        {
+            char[] chars = s.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+
         }
 
         /// <summary> 
@@ -253,6 +369,8 @@ namespace algo
 
             Console.WriteLine("================================================");
         }
+
+
 
     }
 }

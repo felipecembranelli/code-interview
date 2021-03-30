@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\wkd\\Projects\\Study_2020\\code-interview\\algo\\algo.csproj",
+      "projectUniqueName": "C:\\wkd\\projects\\Study_2020\\code-interview\\algo\\algo.csproj",
       "projectName": "algo",
-      "projectPath": "C:\\wkd\\Projects\\Study_2020\\code-interview\\algo\\algo.csproj",
+      "projectPath": "C:\\wkd\\projects\\Study_2020\\code-interview\\algo\\algo.csproj",
       "packagesPath": "C:\\Users\\feliperc\\.nuget\\packages\\",
-      "outputPath": "C:\\wkd\\Projects\\Study_2020\\code-interview\\algo\\obj\\",
+      "outputPath": "C:\\wkd\\projects\\Study_2020\\code-interview\\algo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
